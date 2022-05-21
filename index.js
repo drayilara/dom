@@ -11,4 +11,7 @@ image.src = "https://cdn.shopify.com/s/files/1/0070/7032/files/AMgoal-setting_HE
 
 document.body.appendChild(image);
 
-console.log(window.content);
+
+const parent = document.querySelector("div").firstElementChild.nodeValue
+
+console.log(parent);
