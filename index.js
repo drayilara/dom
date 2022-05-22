@@ -1,25 +1,14 @@
-// collect all the radios
+// lets set the script of html from here
+const fragment = new DocumentFragment();
 
-const radios = document.getElementsByName("rate");
+const languages = ["Spanish", "Yoruba", "English", "Japanese", "Mandarin"]
 
-// add an event listener 
-radios.forEach(radio => {
-    radio.onclick = function(){
-        const radioValue = radio.value;
-        document.getElementById("btnRate").onclick = function(){
-        document.getElementById("output").innerText = radioValue;
-        }
-    }
+const list = document.getElementById("languages");
+
+languages.forEach(language => {
+    const li = document.createElement("li");
+    li.textContent = language;
+    fragment.appendChild(li);
 })
 
-
-// const submit = document.getElementById("btnRate");
-
-// submit.onclick = function(){
-//     const rates = document.getElementsByName("rate");
-
-//     rates.forEach(rate => {
-//         if(rate.checked)
-//         document.getElementById("output").innerText = `You selected ${rate.value}`;
-//     })
-// }
+list.appendChild(fragment);
