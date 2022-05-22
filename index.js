@@ -1,17 +1,25 @@
+// collect all the radios
 
-const text = document.createTextNode("This is an image");
-const heading = document.createElement("h1");
-heading.appendChild(text);
-document.body.appendChild(heading);
+const radios = document.getElementsByName("rate");
 
-const image = document.createElement("img");
-const src = document.createAttribute("src");
+// add an event listener 
+radios.forEach(radio => {
+    radio.onclick = function(){
+        const radioValue = radio.value;
+        document.getElementById("btnRate").onclick = function(){
+        document.getElementById("output").innerText = radioValue;
+        }
+    }
+})
 
-image.src = "https://cdn.shopify.com/s/files/1/0070/7032/files/AMgoal-setting_HEADER.jpg?v=1579623952&width=1024";
 
-document.body.appendChild(image);
+// const submit = document.getElementById("btnRate");
 
+// submit.onclick = function(){
+//     const rates = document.getElementsByName("rate");
 
-const parent = document.querySelector("div").firstElementChild.nodeValue
-
-console.log(parent);
+//     rates.forEach(rate => {
+//         if(rate.checked)
+//         document.getElementById("output").innerText = `You selected ${rate.value}`;
+//     })
+// }
