@@ -1,14 +1,12 @@
-// lets set the script of html from here
-const fragment = new DocumentFragment();
 
-const languages = ["Spanish", "Yoruba", "English", "Japanese", "Mandarin"]
+const menu = document.getElementById("menu");
 
-const list = document.getElementById("languages");
+const hr = document.createElement("hr");
 
-languages.forEach(language => {
-    const li = document.createElement("li");
-    li.textContent = language;
-    fragment.appendChild(li);
-})
+const isRepalced =  menu.firstElementChild;
 
-list.appendChild(fragment);
+menu.replaceChild(hr, isRepalced);
+
+
+
+
