@@ -1,15 +1,59 @@
-// Lets build toggle password functionality
+// // Illustrate bubbling
 
-const eye = document.querySelector("[class*='eye']");
-const field = document.querySelector("[type]");
+// document.addEventListener("click", function(){
+//     console.log("Root was triggered by a bubble");
+// })
+
+// document.documentElement.addEventListener("click", function(){
+//     console.log("html was triggered by a bubble");
+// })
 
 
-eye.addEventListener("click", toggleEye)
+// document.body.addEventListener("click", function(){
+//     console.log("body was triggered by a bubble");
+// })
 
-function toggleEye(){
-    if(field.getAttribute("type") == "text"){
-        field.setAttribute("type", "password");
-    }else{
-        field.setAttribute("type", "text");
+// // const tests = document.querySelectorAll(".test");
+
+// // tests.forEach(test => {
+// //     test.addEventListener("click", function(){
+// //         console.log("Siblings triggered");
+// //     })
+// // })
+
+// document.querySelector("ul").onclick = function(){
+//     console.log("container was triggered")
+// }
+
+// const target = document.getElementById("target");
+
+// target.addEventListener("click", function(){
+//     console.log("I triggered the bubble you have been seeing");
+// })
+
+
+// delegation
+
+const p = document.querySelector("p");
+
+console.log(p);
+
+let counter = 0;
+
+function setEvent(){
+    for(let i = 0; i < 5; i++){
+        ++counter;
+
+        if(counter == 3){
+            p.onclick = function(evt){
+                console.log(evt)
+            }
+        }
+
+        if(counter == 4){
+            p.onclick = null;
+        }
     }
 }
+
+setEvent();
