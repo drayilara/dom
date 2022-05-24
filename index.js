@@ -1,16 +1,31 @@
+// Goal is to see element rect change dynamically on screen upon scrolling
 
+// create a div
+const ul = document.createElement("ul");
 
-const input = document.querySelector("input");
+function getLiveRect(){
+    // get Rect
+    const rectObject = document.getElementById("target").getBoundingClientRect();
 
-input.onclick = function(){
-    this.checked = true;
+    // loop
+
+    ul.innerHTML = "";  
+
+    // remove ul elements to reset dynamically
+
+    for(let c in rectObject){
+        if(typeof rectObject[c] !== "function"){
+            const li = document.createElement("li");
+            li.textContent = `${c} : ${rectObject[ c ]}`
+            ul.appendChild(li);
+        }
+    }
+
+    document.body.appendChild(ul);
+
+   
 }
 
-const p = document.querySelector("p");
-
-// p.style.cssText += "color:red; background-color: yellow; font-size: 100px;";
-// const inline = window.getComputedStyle(p);
-
-p.style.cssText += "background-color: pink; font-size: 100px; font-weight: 100px";
-
-
+window.onscroll = function(){
+        getLiveRect();
+}
