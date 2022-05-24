@@ -1,31 +1,15 @@
-// Goal is to see element rect change dynamically on screen upon scrolling
+// Lets build toggle password functionality
 
-// create a div
-const ul = document.createElement("ul");
+const eye = document.querySelector("[class*='eye']");
+const field = document.querySelector("[type]");
 
-function getLiveRect(){
-    // get Rect
-    const rectObject = document.getElementById("target").getBoundingClientRect();
 
-    // loop
+eye.addEventListener("click", toggleEye)
 
-    ul.innerHTML = "";  
-
-    // remove ul elements to reset dynamically
-
-    for(let c in rectObject){
-        if(typeof rectObject[c] !== "function"){
-            const li = document.createElement("li");
-            li.textContent = `${c} : ${rectObject[ c ]}`
-            ul.appendChild(li);
-        }
+function toggleEye(){
+    if(field.getAttribute("type") == "text"){
+        field.setAttribute("type", "password");
+    }else{
+        field.setAttribute("type", "text");
     }
-
-    document.body.appendChild(ul);
-
-   
-}
-
-window.onscroll = function(){
-        getLiveRect();
 }
