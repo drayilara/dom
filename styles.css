@@ -1,10 +1,24 @@
-form {
-    width: 50%;
-    margin-top : 10%;
-    margin-left : 10%;
+.child{
+    width:100px;
+    height:100px;
+    margin:5px;
+    background-color: bisque;
+    display: inline-block;
 }
 
-ul{
-    height: 100px;
-    background-color: black;
+.child:hover {
+    background-color: azure;
+}
+
+.borderBottom {
+    border-bottom: 5px solid blue;
+}
+
+.visible {
+    visibility: visible;
+}
+
+
+p {
+    height: 300px; width: 500px; background-color: blue; margin: 50px; visibility: hidden;
 }
