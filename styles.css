@@ -12,7 +12,10 @@
 
 .borderBottom {
     border-bottom: 5px solid blue;
+    transition: border .1s;
+    transition-timing-function: ease-in-out;
 }
+
 
 .visible {
     visibility: visible;
@@ -20,5 +23,5 @@
 
 
 p {
-    height: 300px; width: 500px; background-color: blue; margin: 50px; visibility: hidden;
+    height: 300px; width: 500px; margin: 50px; visibility: hidden;
 }

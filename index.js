@@ -1,26 +1,40 @@
 
-const container = document.querySelector("#container")
+// collect them all
+const boxes = document.querySelectorAll(".child");
+const p = document.querySelector("p");
 
-// delegate event to children from parent
+// add event to all
 
-container.addEventListener("click", addClicker)
+boxes.forEach(box => {
+    box.onclick = function(){
+        // collect individual boxes
+        const topBox = document.querySelector(".top")
+        const middleBox = document.querySelector(".middle")
+        const bottomBox = document.querySelector(".bottom")
 
+        this.classList.add("borderBottom");
 
+        if(this.classList.contains("borderBottom")){
+            switch(this){
+                case topBox : middleBox.classList.remove("borderBottom");
+                              bottomBox.classList.remove("borderBottom");
+                              p.style["background-color"] = "green";
+                break;
 
-function addClicker(event){
-    // stop propagation
-        event.stopPropagation();
-        
-       const target = event.target
-       target.classList.toggle("borderBottom")
+                case middleBox : topBox.classList.remove("borderBottom");
+                                 bottomBox.classList.remove("borderBottom");
+                                 p.style["background-color"] = "pink";
+                break;
 
-    //    check if target has borderBottom before displaying p
-        const hasBlueBorder = target.classList.contains("borderBottom");
+                case bottomBox : topBox.classList.remove("borderBottom");
+                                 middleBox.classList.remove("borderBottom");
+                                 p.style["background-color"] = "purple";
+                break;
+                     
+            }
 
-    // grab p
-
-        const p = document.querySelector("p");
-
-        if(hasBlueBorder) p.classList.add("visible");
-        else p.classList.remove("visible");
-}
+            // show the p
+            p.classList.add("visible");
+        }
+    }
+})
