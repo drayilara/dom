@@ -1,19 +1,15 @@
 
 const div = document.querySelector("div");
-const p = document.querySelector("p");
+const logger = document.querySelector("p");
 
-div.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-})
+div.ondblclick = function(e){
+        const cx = e.clientX;
+        const cy = e.clientY;
+        const sx = e.screenX;
+        const sy = e.clientY;
 
-div.addEventListener("mousedown", function(e){
-    let btn = e.button;
+        logger.textContent = `ClientX/Y: ${cx}/${cy}
+                             ScreenX/Y: ${sx}/${sy}`;
+}
 
-    if(btn == 0){
-        p.textContent="You clicked with the left button";
-    } 
 
-    if(btn == 2){
-        p.textContent="You clicked using the right button";
-    } 
-})
