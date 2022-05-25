@@ -1,4 +1,4 @@
-.child{
+div{
     width:100px;
     height:100px;
     margin:5px;
@@ -6,7 +6,7 @@
     display: inline-block;
 }
 
-.child:hover {
+div:hover {
     background-color: azure;
 }
 
@@ -19,9 +19,4 @@
 
 .visible {
     visibility: visible;
-}
-
-
-p {
-    height: 300px; width: 500px; margin: 50px; visibility: hidden;
 }
