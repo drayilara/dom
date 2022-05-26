@@ -1,8 +1,10 @@
 div{
     width:500px;
-    height: 500px;
+    max-height: 500px;
     margin:5px;
     background-color: bisque;
+    padding-bottom: 1000px;
+    display: inline-block;
 }
 
 div:hover {
@@ -18,4 +20,9 @@ div:hover {
 
 .visible {
     visibility: visible;
+}
+
+button{
+    display: inline-block;
+    position: fixed;
 }
