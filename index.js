@@ -1,10 +1,14 @@
-const password = document.querySelector("[type='password']");
-const text = document.querySelector("[type='text']");
+const form = document.querySelector("form");
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
 
-password.onfocus = function(){
-        this.style["background-color"] = "yellow";
-}
+form.onsubmit = function(e){
+        const fname = fname.value;
+        const lname = lname.value;
 
-password.onblur = function(){
-        this.style["background-color"] = "pink";
+        // validation here                          //pass validation
+        if(fname == "sodiq" && lname == "ayilara") form.submit();
+
+        // fails validation
+        else e.preventDefault();
 }
