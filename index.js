@@ -1,14 +1,18 @@
-const form = document.querySelector("form");
-const fname = document.getElementById("fname");
-const lname = document.getElementById("lname");
+toggleFn();
 
-form.onsubmit = function(e){
-        const fname = fname.value;
-        const lname = lname.value;
+function toggleAll(){
+        const boxes = document.querySelectorAll("[type='checkbox']");
 
-        // validation here                          //pass validation
-        if(fname == "sodiq" && lname == "ayilara") form.submit();
+        for(let i = 0; i < boxes.length; i++){
+                if(!boxes[i].checked){
+                        boxes[i].checked = true;
+                }else{
+                        boxes[i].checked = false;
+                }
+        }
+}
 
-        // fails validation
-        else e.preventDefault();
+function toggleFn(){    
+const btn = document.querySelector("button");
+btn.onclick = toggleAll
 }
